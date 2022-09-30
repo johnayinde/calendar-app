@@ -161,35 +161,39 @@ export default class Calendar extends React.Component {
 		});
 
 		return (
-			<div className="tail-datetime-calendar">
-				<CalendarHead
-					showMonthTable={this.state.showMonthTable}
-					showYearEditor={this.state.showYearEditor}
-					onPrev={this.onPrev}
-					onNext={this.onNext}
-					showMonth={this.showMonth}
-					month={this.month}
-					year={this.year}
-					showYearFunc={this.showYearEditor}
-				/>
-				<div className="calendar-date">
-					{this.state.showYearNav && (
-						<YearTable year={this.year()} setYear={this.setYear} />
-					)}
-					{/*  Temporary hide showTable onload */}
-					{this.state.showMonthTable && <MonthList setMonth={this.setMonth} />}
-				</div>
-
-				{this.state.showCalendarTable && (
+			<div className="wrappepr">
+				<div className="tail-datetime-calendar">
+					<CalendarHead
+						showMonthTable={this.state.showMonthTable}
+						showYearEditor={this.state.showYearEditor}
+						onPrev={this.onPrev}
+						onNext={this.onNext}
+						showMonth={this.showMonth}
+						month={this.month}
+						year={this.year}
+						showYearFunc={this.showYearEditor}
+					/>
 					<div className="calendar-date">
-						<table className="calendar-day">
-							<thead>
-								<tr>{weekdayshortname}</tr>
-							</thead>
-							<tbody>{daysinmonth}</tbody>
-						</table>
+						{this.state.showYearNav && (
+							<YearTable year={this.year()} setYear={this.setYear} />
+						)}
+						{/*  Temporary hide showTable onload */}
+						{this.state.showMonthTable && (
+							<MonthList setMonth={this.setMonth} />
+						)}
 					</div>
-				)}
+
+					{this.state.showCalendarTable && (
+						<div className="calendar-date">
+							<table className="calendar-day">
+								<thead>
+									<tr>{weekdayshortname}</tr>
+								</thead>
+								<tbody>{daysinmonth}</tbody>
+							</table>
+						</div>
+					)}
+				</div>
 			</div>
 		);
 	}
