@@ -6,6 +6,7 @@ function CalendarHead({
 	showYearEditor,
 	year,
 	showMonthTable,
+	showYearFunc,
 }) {
 	return (
 		<div className="calendar-navi">
@@ -20,7 +21,7 @@ function CalendarHead({
 					onClick={() => {
 						onPrev();
 					}}
-					class="calendar-button button-prev first"
+					className="calendar-button button-prev first"
 				/>
 
 				<span
@@ -35,7 +36,7 @@ function CalendarHead({
 					onClick={() => {
 						showMonth();
 					}}
-					class="calendar-label"
+					className="calendar-label"
 				>
 					{month()}
 				</span>
@@ -43,7 +44,7 @@ function CalendarHead({
 			<span
 				className="calendar-label"
 				onClick={() => {
-					showYearEditor();
+					showYearFunc();
 				}}
 			>
 				{year()}
